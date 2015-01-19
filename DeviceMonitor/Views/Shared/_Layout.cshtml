@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+@using Microsoft.Ajax.Utilities
+@model IEnumerable<DeviceMonitor.Models.DeviceModels.DeviceGroup>
+@{
+    ViewBag.Title = "Home Page";
+}
+<html>
+<head>
+    <title>@ViewBag.Title.</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/jNotify/jNotify.jquery.css" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="~/Scripts/jquery.easyui.min-1.4.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    @RenderSection("Scripts",required: false)
+</head>
+    <body class="easyui-layout">
+        @RenderBody()
+            @RenderSection("header", required: false)
+        <div region="west" split="true" title="设备列表" style="width: 200px;">
+            @RenderSection("treeHeader", required: false)
+            <ul id="deviceTree"></ul>
+        </div>
+        <div id="mainPanle" region="center" style="overflow: hidden;">
+            @RenderSection("center", required: false)
+        </div>
+    </body>
+</html>
+

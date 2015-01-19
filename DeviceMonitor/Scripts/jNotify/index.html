@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="jNotify, jquery插件" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<title>jNotify：操作结果信息提示条-Helloweba演示平台</title>
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" href="jNotify.jquery.css" />
+<style type="text/css">
+.demo{width:400px; height:300px; margin:100px auto}
+.demo p{line-height:42px; height:42px; font-size:18px}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="jNotify.jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("a.success").click(function(){
+		jSuccess("恭喜，操作成功! + <strong>10</strong> 金币!",{
+			VerticalPosition : 'center',
+			HorizontalPosition : 'center'
+		});
+	});
+	$("a.notice").click(function(){
+		jNotify("注意：请完善你的<strong>个人资料！</strong>");
+	});
+	$("a.error").click(function(){
+		jError("操作失败，请重试!!");
+	});
+	$("a.three").click(function(){
+		jSuccess("操作成功，2秒后显示下一个提示框!!",{
+			TimeShown : 2000,
+			onClosed:function(){
+				jNotify("注意：点击这里显示下一个提示框",{
+					VerticalPosition : 'top',
+					autoHide : false,
+					onClosed:function(){
+						jError("出错啦! 演示结束,<br /> 请点击背景层关闭提示框。",{
+							   clickOverlay : true,
+							   autoHide : false,
+							   HorizontalPosition : 'left'
+						});
+					}	
+				});
+			}
+		});
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+</div>
+<div id="main">
+<h2 class="top_title"><a href="http://www.helloweba.com/view-blog-105.html">jNotify：操作结果信息提示条</a></h2>
+<div class="demo">
+<p><a href="#" class="success">1、操作成功!</a></p>
+<p><a href="#" class="notice">2、操作提醒!</a></p>
+<p><a href="#" class="error">3、操作失败!</a></p><br />
+<p><a href="#" class="three">4、操作成功，提醒和失败!!</a></p>
+</div>
+
+</div>
+<div id="footer">
+    <p>Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+<p id="stat"><script type="text/javascript" src="http://js.tongji.linezing.com/1870888/tongji.js"></script></p>
+</body>
+</html>
